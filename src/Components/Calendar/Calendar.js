@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import * as calendar from './utils';
 
 const Calendar = (props) => {
@@ -52,7 +53,7 @@ const Calendar = (props) => {
               <tr key={index}>
                 {
                   week.map((day) =>
-                    <td className={day.notCurrentMonth ? 'ui-datepicker-other-month' : ''} key={day.day}>{day.day}</td>
+                    <td className={classnames({ "ui-datepicker-today": calendar.isToday(date.getDate(), day), "ui-datepicker-other-month": day.notCurrentMonth})} key={day.day}>{day.day}</td>
                   )
                 }
               </tr>
